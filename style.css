@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsla(293, 16%, 49%, 0.8);
+  --grayish-purple-border: hsla(293, 16%, 49%, 0.2);
+  --dark-purple: hsl(292, 42%, 14%);
+  font-size: 62.5%;;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.6rem;
+  background-image:url(./assets/background-pattern-mobile.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: var(--light-pink);
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  padding-left: 2.6rem;
+  padding-right: 2.6rem;
+}
+
+main {
+  background-color: var(--white);
+  padding: 2.4rem;
+  border-radius: 0.8rem;
+  max-width: 60rem;
+}
+
+.hidden {
+  display: none;
+  overflow: hidden;
+}
+
+.title-container {
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.4rem;
+}
+
+.title-container img {
+  width: 2rem;
+  height: 2rem;
+}
+
+details {
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--grayish-purple-border);
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  /* TODO: Fazer funcionar animação consecutivamente (abrir e fechar o mesmo item varias vezes) */
+  transition: max-height 2s ease;
+  max-height: 5rem;
+  overflow: hidden;
+}
+
+details[open] {
+  max-height: 80rem;
+}
+
+details summary img[alt="Minus Icon"] {
+  display: none;
+  overflow: hidden;
+}
+
+details[open] summary img[alt="Minus Icon"] {
+  display: initial;
+  overflow: initial;
+}
+
+details[open] summary img[alt="Plus Icon"] {
+  display: none;
+  overflow: hidden;
+}
+
+summary {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+summary:hover{
+  color: purple;
+}
+
+details p {
+  max-width: 40rem;
+  color: var(--grayish-purple);
+}
+
+@media (min-width: 545px) {
+  body {
+    background-image: url(./assets/background-pattern-desktop.svg);
+  }
+}
